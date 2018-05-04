@@ -1,0 +1,12 @@
+[$("#html").val().trim(), 
+ $("#css").val().trim(), 
+ $("#js").val().trim(), 
+ $("#jquery").val().trim(), 
+ $("#sql").val().trim(), 
+ $("#nodejs").val().trim(), 
+ $("#express").val().trim(), 
+ $("#handlebars").val().trim(), 
+ $("#bootstrap").val().trim(), 
+ $("#Ajax").val().trim()
+] 
+ 

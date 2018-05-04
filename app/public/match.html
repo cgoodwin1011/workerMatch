@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Candidate Survey</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">
+        <span class="fa fa-fire"></span> Hot Programmer</h1>
+      <hr>
+      <div class="text-center">
+        <!-- <a href="/survey">
+          <button class="btn btn-lg btn-primary">
+            <span class="fa fa-list-alt"></span> Take Our Skills Survey!</button>
+        </a>
+        <a href="/employer">
+          <button class="btn btn-lg btn-primary">
+            <span class="fa fa-list-alt"></span> Find Your Next Employee!</button>
+        </a> -->
+        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button>
+        </a>
+      </div>
+      <h1 class="text-center">Let's See How You Did</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- candidate survey page -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Here is your best match</h4>
+          </div>
+          <div class="panel-body">
+            Match informaiton goes here
+          </div>
+        </div>
+
+      </div>
+    </div>
+   <footer class="footer">
+      <div class="container">
+        <p><a href="/api/candidates">API Candidates Link</a> | <a href="/api/employers">API Employers Link</a>  | <a href="https://github.com/*********">GitHub Repo</a></p>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+  // Get the form data....  
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+
+    // template for new candidate
+    var newCandidate = {
+      name: $("#candidate-name").val().trim(),
+      tel: $("#candidate-phone").val().trim(),
+      email: $("#candidate-email").val().trim(),
+      photo: $("#candidate-headshot").val().trim(),
+      scores: [$("#html").val().trim(), 
+               $("#css").val().trim(), 
+               $("#js").val().trim(), 
+               $("#jquery").val().trim(), 
+               $("#sql").val().trim(), 
+               $("#nodejs").val().trim(), 
+               $("#express").val().trim(), 
+               $("#handlebars").val().trim(), 
+               $("#bootstrap").val().trim(), 
+               $("#Ajax").val().trim()
+              ],
+      role: "candidate" 
+    };
+
+    console.log(newCandidate);
+
+    // Magic happens here... we add out candidate
+    $.post("/api/candidates", newCandidate,
+      function(data) {
+
+        // If a table is available... tell user they are booked.
+        if (data) {
+          alert("Thank You for your interest...");
+        }
+
+        // If a table is available... tell user they on the waiting list.
+        else {
+          alert("Sorry you are on the wait list");
+        }
+
+        // Clear the form when submitting
+        $("#candidate-name").val("");
+        $("#candidate-phone").val("");
+        $("#candidate-email").val("");
+        $("#candidate-headshot").val("");
+        $("#html").val(1)
+        $("#css").val(1)
+        $("#js").val(1)
+        $("#jquery").val(1)
+        $("#sql").val(1)
+        $("#nodejs").val(1)
+        $("#express").val(1)
+        $("#handlebars").val(1)
+        $("#bootstrap").val(1)
+        $("#Ajax").val(1)
+
+      });
+
+  });
+
+</script>

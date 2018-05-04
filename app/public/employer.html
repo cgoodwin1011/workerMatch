@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Employer Information</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">
+        <span class="fa fa-fire"></span> Hot Programmer</h1>
+      <hr>
+      <h2 class="text-center">Tell Us What You Need!
+        <br> We'll Find A Match</h2>
+      <br>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- Reservation Page -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Tell us who you are and the skills you're seeking</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form">
+
+              <div class="form-group">
+                <label for="employer-name">Name</label>
+                <input type="text" class="form-control" id="employer-name">
+              </div>
+
+              <div class="form-group">
+                <label for="employer-phone">TelNo.:</label>
+                <input type="text" class="form-control" id="employer-phone">
+              </div>
+
+              <div class="form-group">
+                <label for="employer-email">Email</label>
+                <input type="text" class="form-control" id="employer-email">
+              </div>
+
+              <div class="form-group">
+                <label for="employer-website">Link to Your Comapany Site</label>
+                <input type="text" class="form-control" id="employer-website">
+              </div>
+
+              <div class="form-group">
+                <h4>What Skills Do You Need</h4>
+                <p>1 means unnecessary; 10 means essential, must have</p>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label for="html">HTML:</label>
+                    <select class="form-control " id="html">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div id="col-md-2">
+                    <label for="css">CSS:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <select class="form-control" id="css">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="js">JavaScript:</label>
+                    <select class="form-control " id="js">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="jquery">jQuery:</label>
+                    <select class="form-control " id="jquery">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="sql">MySql:</label>
+                    <select class="form-control " id="sql">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="nodejs">Node.js:</label>
+                    <select class="form-control " id="nodejs">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="express">Express:</label>
+                    <select class="form-control " id="express">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="handlebars">handlebars:</label>
+                    <select class="form-control " id="handlebars">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="bootstrap">Bootstrap:</label>
+                    <select class="form-control " id="bootstrap">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                  <div class="col-1">
+                    <label for="Ajax">Ajax:</label>
+                    <select class="form-control " id="Ajax">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          <a href="/api/candidates">API Candidates Link</a> |
+          <a href="/api/employers">API Employers Link</a> |
+          <a href="https://github.com/*********">GitHub Repo</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+  // Get the form data....  
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+
+    // template for new employer
+    var newEmployer = {
+      name: $("#employer-name").val().trim(),
+      tel: $("#employer-phone").val().trim(),
+      email: $("#employer-email").val().trim(),
+      photo: $("#employer-website").val().trim(),
+      scores: [$("#html").val().trim(), 
+               $("#css").val().trim(), 
+               $("#js").val().trim(), 
+               $("#jquery").val().trim(), 
+               $("#sql").val().trim(), 
+               $("#nodejs").val().trim(), 
+               $("#express").val().trim(), 
+               $("#handlebars").val().trim(), 
+               $("#bootstrap").val().trim(), 
+               $("#Ajax").val().trim()
+              ],
+      role: "employer" 
+    };
+
+    console.log(newEmployer);
+
+    // Magic happens here... we add out employer
+    $.post("/api/employers", newEmployer,
+      function(data) {
+
+        // Clear the form when submitting
+        $("#employer-name").val("");
+        $("#employer-phone").val("");
+        $("#employer-email").val("");
+        $("#employer-headshot").val("");
+        $("#html").val(1)
+        $("#css").val(1)
+        $("#js").val(1)
+        $("#jquery").val(1)
+        $("#sql").val(1)
+        $("#nodejs").val(1)
+        $("#express").val(1)
+        $("#handlebars").val(1)
+        $("#bootstrap").val(1)
+        $("#Ajax").val(1)
+        
+      });
+
+  });
+
+</script>
