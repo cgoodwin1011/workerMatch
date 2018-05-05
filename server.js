@@ -67,8 +67,6 @@ app.post("/api/employers", function(req, res) {
 
   newEmployer.routeName = newEmployer.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newEmployer);
-
   candidates.push(newEmployer);
 
   res.json(newEmployer);
