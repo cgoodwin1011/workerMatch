@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Candidate Survey</title>
@@ -7,7 +8,6 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 
@@ -22,11 +22,11 @@
       <br>
 
       <div class="text-center">
-        <a href="/">
-          <button class="btn btn-lg btn-default">
-            <span class="fa fa-home"></span>
-          </button>
+        <a href="/survey">
+          <button class="btn btn-lg btn-primary">
+            <span class="fa fa-list-alt"></span> Take Our Survey</button>
         </a>
+        <!-- <a href="/candidate"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a> -->
       </div>
 
     </div>
@@ -219,8 +219,6 @@
                 </div>
 
               <button type="submit" class="btn btn-primary submit">Submit</button>
-              <a id="candidate-match" style="display: none" href="/api/candidatematch">See Your Match</a>
-              
             </form>
 
           </div>
@@ -230,7 +228,7 @@
     </div>
    <footer class="footer">
       <div class="container">
-        <p><a href="/api/candidates">API Candidates Link</a> | <a href="/api/employers">API Employers Link</a>  |  <a href="https://github.com/cgoodwin1011/workerMatch">GitHub Repo</a></p>
+        <p><a href="/api/candidates">API Candidates Link</a> | <a href="/api/employers">API Employers Link</a>  | <a href="https://github.com/*********">GitHub Repo</a></p>
       </div>
     </footer>
   </div>
@@ -241,6 +239,7 @@
 </html>
 
 <script type="text/javascript">
+
   // Get the form data....  
   $(".submit").on("click", function(event) {
     event.preventDefault();
@@ -262,13 +261,15 @@
                $("#bootstrap").val().trim(), 
                $("#Ajax").val().trim()
               ],
-      role: "candidate", 
-      routeName: $("#candidate-name").val().trim().replace(/\s+/g, "").toLowerCase()
+      role: "candidate" 
     };
- 
-    // Magic happens here... we add our candidate
+
+    console.log(newCandidate);
+
+    // Magic happens here... we add out candidate
     $.post("/api/candidates", newCandidate,
       function(data) {
+
         // Clear the form when submitting
         $("#candidate-name").val("");
         $("#candidate-phone").val("");
@@ -284,9 +285,16 @@
         $("#handlebars").val(1)
         $("#bootstrap").val(1)
         $("#Ajax").val(1)
+
       });
-      $("#candidate-match").show();
+    $.post("/match"), newCandidate, 
+      function(data) 
+      {
+        console.log("hello");
+      }
+
   });
+
 
 
 </script>

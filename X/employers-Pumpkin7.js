@@ -10,26 +10,23 @@ var employers = [
     email: "tony@starkindustries.com",
     website: "http://starkindustries.com/index.php",
     scores: [5,5,5,5,5,5,5,5,5,5],
-    role: "employer",
-    routeName: "starkindustries"
+    role: "employer"
   },
   {
     name: "DC Comics",
     tel: "212-636-5400",
     email: "info@dccomics.com",
     website: "https://www.dccomics.com/",
-    scores: [10,10,10,10,10,10,10,10,10,10],
-    role: "employer",
-    routeName: "dccomics"
+    scores: [10,10,10,1,2,3,4,5,6],
+    role: "employer"
   },
   {
     name: "Marvel Comics",
     tel: "212-576-4000",
     email: "marvelsubs@midtowncomics.com",
     website: "https://marvel.com/",
-    scores: [1,1,1,1,1,1,1,1,1,1],
-    role: "employer",
-    routeName: "marvelcomics"
+    scores: [5,5,5,5,5,5,5,5,5,5],
+    role: "employer"
   }
 ];
 

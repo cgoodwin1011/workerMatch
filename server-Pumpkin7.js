@@ -37,23 +37,58 @@ app.get("/", function(req, res) {
 });
 
 app.get("/survey", function(req, res) {
+  console.log("getting survery")
   res.sendFile(path.join(__dirname, "app/public/survey.html"));
 });
-
-app.get("/match", function(req, res) {
-  res.sendFile(path.join(__dirname, "app/public/survey.html"));
-});
-
 
 // apiRoutes
+// Displays all candidates
+// app.get("/api/candidates", function(req, res) {
+//   return res.json(candidates);
+// });
 
+// Displays a single character, or returns false
+app.get("/api/candidates/:candidate", function(req, res) {
+  var chosen = req.params.candidate;
 
-//Create New Characters - takes in JSON input
+  console.log(chosen);
+
+  for (var i = 0; i < candidates.length; i++) {
+    if (chosen === candidates[i].routeName) {
+      return res.json(candidates[i]);
+    }
+  }
+
+  return res.json(false);
+});
+
+// // Create New Characters - takes in JSON input
+// app.post("/api/candidates", function(req, res) {
+//   // req.body hosts is equal to the JSON post sent from the user
+//   // This works because of our body-parser middleware
+//   var newCandidate = req.body;
+
+//   // Using a RegEx Pattern to remove spaces from newCharacter
+//   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+//   newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+
+//   console.log(newCandidate);
+
+//   candidates.push(newCandidate);
+
+//   res.json(newcharacter);
+// });
 
 app.post("/api/candidates", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newCandidate = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newCandidate);
 
   candidates.push(newCandidate);
 
@@ -65,6 +100,8 @@ app.post("/api/employers", function(req, res) {
   // This works because of our body-parser middleware
   var newEmployer = req.body;
 
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   newEmployer.routeName = newEmployer.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newEmployer);

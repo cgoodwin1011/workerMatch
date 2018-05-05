@@ -8,8 +8,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  
+
 </head>
 
 <body>
@@ -21,13 +20,6 @@
       <h2 class="text-center">Tell Us What You Need!
         <br> We'll Find A Match</h2>
       <br>
-      <div class="text-center">
-        <a href="/">
-          <button class="btn btn-lg btn-default text-center">
-            <span class="fa fa-home"></span>
-          </button>
-        </a>
-      </div>
     </div>
 
     <div class="row">
@@ -219,7 +211,6 @@
               </div>
 
               <button type="submit" class="btn btn-primary submit">Submit</button>
-              <a id="employer-match" style="display: none" href="/api/employermatch">See Your Match</a>
             </form>
 
           </div>
@@ -233,7 +224,7 @@
         <p>
           <a href="/api/candidates">API Candidates Link</a> |
           <a href="/api/employers">API Employers Link</a> |
-          <a href="https://github.com/cgoodwin1011/workerMatch">GitHub Repo</a>
+          <a href="https://github.com/*********">GitHub Repo</a>
         </p>
       </div>
     </footer>
@@ -245,8 +236,9 @@
 </html>
 
 <script type="text/javascript">
+
   // Get the form data....  
-  $(".submit").on("click", function (event) {
+  $(".submit").on("click", function(event) {
     event.preventDefault();
 
     // template for new employer
@@ -255,26 +247,25 @@
       tel: $("#employer-phone").val().trim(),
       email: $("#employer-email").val().trim(),
       photo: $("#employer-website").val().trim(),
-      scores: [$("#html").val().trim(),
-        $("#css").val().trim(),
-        $("#js").val().trim(),
-        $("#jquery").val().trim(),
-        $("#sql").val().trim(),
-        $("#nodejs").val().trim(),
-        $("#express").val().trim(),
-        $("#handlebars").val().trim(),
-        $("#bootstrap").val().trim(),
-        $("#Ajax").val().trim()
-      ],
-      role: "employer",
-      routeName: $("#employer-name").val().trim().replace(/\s+/g, "").toLowerCase()
+      scores: [$("#html").val().trim(), 
+               $("#css").val().trim(), 
+               $("#js").val().trim(), 
+               $("#jquery").val().trim(), 
+               $("#sql").val().trim(), 
+               $("#nodejs").val().trim(), 
+               $("#express").val().trim(), 
+               $("#handlebars").val().trim(), 
+               $("#bootstrap").val().trim(), 
+               $("#Ajax").val().trim()
+              ],
+      role: "employer" 
     };
 
     console.log(newEmployer);
 
     // Magic happens here... we add out employer
     $.post("/api/employers", newEmployer,
-      function (data) {
+      function(data) {
 
         // Clear the form when submitting
         $("#employer-name").val("");
@@ -291,9 +282,9 @@
         $("#handlebars").val(1)
         $("#bootstrap").val(1)
         $("#Ajax").val(1)
-
+        
       });
-      $("#employer-match").show();
 
   });
+
 </script>

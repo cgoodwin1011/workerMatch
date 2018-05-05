@@ -11,9 +11,8 @@ var candidates = [
     email: "camerica@marvel.edu",
     photo: "https://scifanatic-wpengine.netdna-ssl.com/images/sfs/avengersportrait-1-small-sfmovies190.jpg",
     scores: [5,5,5,5,5,5,5,5,5,5],
-    role: "candidate",
-    routeName: "steverogers"
+    role: "candidate"
   }
-]
+];
 
 module.exports = candidates;

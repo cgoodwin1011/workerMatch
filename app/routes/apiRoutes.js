@@ -14,75 +14,98 @@ var employers = require("../data/employers");
 
 module.exports = function(app) {
   // API GET Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
-
+ 
+  // Displays all employers
   app.get("/api/employers", function(req, res) {
     res.json(employers);
+  });
+
+  // Displays a single employer, or returns false
+  app.get("/api/employers/:employer", function(req, res) {
+    var chosen = req.params.employer;
+
+    for (var i = 0; i < employers.length; i++) {
+      if (chosen === employers[i].routeName) {
+        return res.json(employers[i]);
+      }
+    }
+
+    return res.json(false);
   });
 
   app.get("/api/candidates", function(req, res) {
     res.json(candidates);
   });
 
-  // API POST Requests
-  // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
-  // ---------------------------------------------------------------------------
 
+  // Displays a single chcandidate aracter, or returns false
+  app.get("/api/candidates/:candidate", function(req, res) {
+    var chosen = req.params.candidate;
+
+    for (var i = 0; i < candidates.length; i++) {
+      if (chosen === candidates[i].routeName) {
+        return res.json(candidates[i]);
+      }
+    }
+
+    return res.json(false);
+  });
+
+
+  // API POST Requests
+ 
   app.post("/api/candidates", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body-parser middleware
-      console.log("adding candidate");
-      candidates.push(req.body);
+    // puts data in canddiates
+    candidates.push(req.body);
       res.json(true);
     }
   );
 
   app.post("/api/employers", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body-parser middleware
+    // puts data in employers array
       employers.push(req.body);
       res.json(true);
     }
   );
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
-
-  app.post("./match", function(req, res) {
+  app.get("/api/candidatematch", function(req, res) {
     var differences = [];
-    var maxDif;
-    if (req.role.toLowerCase().trim() == "candidate") {
-      for (i=0; i < emloyers.length(); i++) {
-        for (j = 0; j < req.scores.length(); j++) {
-          difference[j] += Math.abs(req.scores[j] - employers[i].scores[j]);
-        }
-      }
-    } else {
-      for (i=0; i < candidates.length(); i++) {
-        for (j = 0; j < req.scores.length(); j++) {
-          difference[j] += Math.abs(req.scores[j] - candidates[i].scores[j]);
-        }
+    var candidate = candidates[candidates.length-1];
+    for (i=0; i < employers.length; i++) {
+      differences.push(0);
+      for (j = 0; j < candidate.scores.length; j++) {
+        differences[i] += Math.abs(candidate.scores[j] - employers[i].scores[j]);
       }
     }
-    return differences[indexOf(Math.min(differences))];
+    var min = Math.min.apply(null, differences);
+    var  employerNum = differences.indexOf(min);
+
+    var output =  "<h1>You match with "+(employers[employerNum].name+"</h1>")
+    output += "<a href='/api/employers/"+employers[employerNum].routeName+"'>"+"Click Here for more info</a>";
+    res.send(output);
+
   });
 
+  app.get("/api/employermatch", function(req, res) {
+    if(employers.length == 3) {
+      alert("You need to enter your company profile first");
+      return false;
+    }
+    var differences = [];
+    var employer = employers[employers.length-1];
+    for (i=0; i < candidates.length; i++) {
+      differences.push(0);
+      for (j = 0; j < employer.scores.length; j++) {
+        differences[i] += Math.abs(employer.scores[j] - candidates[i].scores[j]);
+      }
+    }
+    var min = Math.min.apply(null, differences);
+    var  candidateNum = differences.indexOf(min);
 
-  app.post("/api/clear", function() {
-    // Empty out the arrays of data
-    candidates = [];
-    employers = [];
+    var output =  "<h1>You match with "+(candidates[candidateNum].name+"</h1>")
+    output += "<a href='/api/employers/"+candidates[candidateNum].routeName+"'>"+"Click Here for more info</a>";
+    res.send(output);
 
-    console.log(tableData);
   });
-};
+
+}
